@@ -8,3 +8,6 @@ then
 else
     docker-compose -f server.yml down -v
 fi
+
+docker ps -aq -f status=exited
+docker rmi $(docker images | grep '^<none>' | awk '{print $3}')

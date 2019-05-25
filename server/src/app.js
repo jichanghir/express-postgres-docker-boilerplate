@@ -6,6 +6,8 @@ const logger = require('morgan');
 
 const app = express();
 
+require('./db');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

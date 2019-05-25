@@ -4,5 +4,13 @@ services:
     build: ./server
     ports:
       - 3000:3000
+      - 443:443
     env_file:
      - .env
+    environment:
+     - NODE_ENV=production
+    networks:
+      - webnet
+
+networks:
+  webnet:

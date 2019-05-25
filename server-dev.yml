@@ -4,7 +4,15 @@ services:
     build: ./server
     ports:
       - 3000:3000
+      - 443:443
     volumes:
       - ./server/src:/app
     env_file:
-     - .env-dev
+     - .env
+    environment:
+     - NODE_ENV=development
+    networks:
+      - webnet
+
+networks:
+  webnet:
