@@ -1,28 +1,31 @@
+const path = require('path');
+require('dotenv').config({
+    path: path.join(__dirname, '../../../.env')
+});
+
 module.exports = {
   development: {
     username: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
-    host: 'db',
+    host: 'localhost',
     dialect: 'postgres',
-    use_env_variable: `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@db/${process.env.DB_NAME}`
+    use_env_variable: `DB_URL` // for cli only
   },
   test: {
     username: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
-    host: 'db',
+    host: 'localhost',
     dialect: 'postgres',
-    use_env_variable: `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@db/${process.env.DB_NAME}`
+    use_env_variable: `DB_URL` // for cli only
   },
   production: {
     username: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
-    host: 'db',
+    host: 'localhost',
     dialect: 'postgres',
-    use_env_variable: `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@db/${process.env.DB_NAME}`
-  },
-  "migrations-path": path.join(__dirname, 'migrations'),
-  "models-path": path.join(__dirname, 'models'),
+    use_env_variable: `DB_URL` // for cli only
+  }
 };
