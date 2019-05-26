@@ -6,7 +6,15 @@ const logger = require('morgan');
 
 const app = express();
 
-require('./db');
+const db = require(path.join(__dirname, './db'));
+db.authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
+app.use('/gigs', require('./routes/gigs'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
