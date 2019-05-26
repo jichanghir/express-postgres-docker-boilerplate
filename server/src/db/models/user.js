@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   User.associate = function(models) {
     User.belongsToMany(models.Team, {
-      through: 'Member',
-      foreignKey: 'userId'
+      through: 'Members',
+      foreignKey: 'user_id'
     })
   };
   return User;

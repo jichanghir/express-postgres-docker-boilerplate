@@ -1,7 +1,16 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Members', {
+    return queryInterface.createTable('Messages', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      text: {
+        type: Sequelize.TEXT
+      },
       user_id: {
         type: Sequelize.INTEGER,
         references: {
@@ -9,10 +18,10 @@ module.exports = {
           key: 'id'
         }
       },
-      team_id: {
+      channel_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Teams',
+          model: 'Channels',
           key: 'id'
         }
       },
@@ -27,6 +36,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Members');
+    return queryInterface.dropTable('Messages');
   }
 };

@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Team.associate = function(models) {
     Team.belongsToMany(models.User, {
-      through: 'Member',
-      foreignKey: 'teamId'
+      through: 'Members',
+      foreignKey: 'team_id'
     });
     Team.belongsTo(models.User, {
       foreignKey: 'owner'
