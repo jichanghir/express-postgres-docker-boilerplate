@@ -1,7 +1,5 @@
 #!/bin/sh
 
-docker-compose -f db.yml up -d --build
-
 if [ "$1" = "dev" ]
 then
     npm i --prefix ./server/src

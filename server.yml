@@ -1,14 +1,25 @@
-version: "3"
+version: "3.4"
 services:
   server:
     build: ./server
     ports:
-      - 3000:3000
+      - 8080:3000
       - 443:443
     env_file:
      - .env
     environment:
      - NODE_ENV=production
+    networks:
+      - webnet
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      target: prod
+    container_name: client
+    environment:
+      - NODE_ENV=production
     networks:
       - webnet
 

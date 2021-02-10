@@ -1,0 +1,33 @@
+.App {
+  padding: 20px;
+}
+.button {
+
+}
+
+.tag-block {
+
+}
+
+.tag-block-item {
+  margin-bottom: 10px;
+
+  display: flex;
+}
+
+.tag-block-item-left {
+  margin-right: 5px;
+}
+
+.tag-block-item-select {
+  margin-left: 5px;
+}
+
+
+.user-block {
+  margin-bottom: 10px;
+}
+
+.user-block-description {
+  padding: 10px;
+}

@@ -1,9 +1,9 @@
-version: "3"
+version: "3.4"
 services:
   server:
     build: ./server
     ports:
-      - 3000:3000
+      - 8080:3000
       - 443:443
     volumes:
       - ./server/src:/app
@@ -13,6 +13,22 @@ services:
      - NODE_ENV=development
     networks:
       - webnet
+
+  # client:
+  #   build:
+  #     context: ./client
+  #     dockerfile: Dockerfile
+  #     target: install-dependencies
+  #   command: yarn start
+  #   container_name: client
+  #   ports:
+  #     - 3000:3000
+  #   volumes:
+  #     - ./client/src/src:/app/src
+  #   environment:
+  #     - NODE_ENV=development
+  #   networks:
+  #     - webnet
 
 networks:
   webnet:
