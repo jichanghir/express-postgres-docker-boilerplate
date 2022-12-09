@@ -8,7 +8,7 @@
   "dependencies": {
     "carbone": "^2.1.1",
     "cors": "^2.8.5",
-    "express": "~4.16.1",
+    "express": "~4.17.3",
     "formidable": "^1.2.2"
   },
   "devDependencies": {
